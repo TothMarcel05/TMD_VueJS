@@ -15,7 +15,7 @@
             <h2>{{ slogan }}</h2>
             <h1 v-html="welcomeHtml"></h1>
             <img v-bind="logo" />
-            
+
             <li v-for="kiemelt in kiemeltek" :key="kiemelt.id">
                {{ kiemelt.id }}. {{ kiemelt.name }}
             </li>
@@ -39,9 +39,9 @@
             <h1>Teljes kínálat</h1>
             <template v-for="termek in termekek" :key="termek.id">
                 <h2> {{ termek.name }}</h2>
-                <span v-if="termek.keszlet  === 0" style="color: red">Elfogyott</span>
-                <span v-else-if="termek.keszlet  < 3" style="color: orange">Utolsó darabok, csak {{termek.keszlet}}</span>
-                <span v-else style="color: green">Raktáron</span>
+                <span v-if="termek.keszlet  === 0" :style="{color: elfogyottSzin}">Elfogyott</span>
+                <span v-else-if="termek.keszlet  < 3" :style="{color: utolsoDarabSzin}">Utolsó darabok, csak {{termek.keszlet}}</span>
+                <span v-else :style="{color: raktaronSzin}">Raktáron</span>
 
             </template>
     
