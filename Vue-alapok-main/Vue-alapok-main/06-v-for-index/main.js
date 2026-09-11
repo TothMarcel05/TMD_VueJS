@@ -1,0 +1,14 @@
+const app = Vue.createApp({
+    setup() {
+        const frameworks = [ 
+            { id: 1, name: "Vue.js" },
+            { id: 2, name: "React" },
+            { id: 3, name: "Angular" },
+            { id: 4, name: "Svelte" }
+        ];
+
+        return { frameworks };
+    }
+});
+
+app.mount('#appdiv');
