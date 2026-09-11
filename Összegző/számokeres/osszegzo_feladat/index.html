@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelBolt — összefoglaló feladat</title>
+</head>
+<script src="https://unpkg.com/vue@3"></script>
+<body>
+    <div id="app">
+        <!-- A feladat leírása a FELADAT.md-ben van.
+             Ide dolgozz: interpoláció, v-html, v-bind, v-for, v-if, v-show, :style -->
+            <h1>{{ shopName }}</h1> 
+             <!-- <title v-bind="tooltip"></title> -->
+            <h2>{{ slogan }}</h2>
+            <h1 v-html="welcomeHtml"></h1>
+            <img v-bind="logo" />
+            
+            <li v-for="kiemelt in kiemeltek" :key="kiemelt.id">
+               {{ kiemelt.id }}. {{ kiemelt.name }}
+            </li>
+
+            <li v-for="polc in polcok" :key="polc.id">
+                <br>
+                <ul>
+                <li v-for="p in polc">
+                    {{ p }}
+                </li>
+                </ul>
+            </li>
+            <br>
+
+
+            <h1>Most kapható</h1>
+            <template v-for="termek in termekek" :key="termek.id">
+                <h2 v-if="termek.keszlet  > 0">{{ termek.name }}</h2>
+            </template>
+
+            <h1>Teljes kínálat</h1>
+            <template v-for="termek in termekek" :key="termek.id">
+                <h2> {{ termek.name }}</h2>
+                <span v-if="termek.keszlet  === 0" style="color: red">Elfogyott</span>
+                <span v-else-if="termek.keszlet  < 3" style="color: orange">Utolsó darabok, csak {{termek.keszlet}}</span>
+                <span v-else style="color: green">Raktáron</span>
+
+            </template>
+    
+        </div>
+    <script src="main.js"></script>
+</body>
+</html>
