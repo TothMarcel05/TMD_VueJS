@@ -1,47 +1,45 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue';
+import { onMounted } from 'vue';
+import { getUsers } from '../apis/userAPI';
+
+const users = ref([]);
+
+onMounted(async () => {
+  users.value = await getUsers();
+});
+
 </script>
 
+
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+<table class="table table-striped">
+  <thead></thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email address</th>
+      <th>-</th>
+    </tr>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+    <tbody>
+      <tr v-for="user in users" :key="user.id">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.emailAdress }}</td>
+        <td>
+          <button class="btn btn-primary">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
 
-  <main>
-    <TheWelcome />
-  </main>
+
+    </tbody>
+
+
+</table>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
