@@ -34,7 +34,7 @@ async function handleDeleteClick(userId) {
       <tr v-for="user in users" :key="user.id">
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
-        <td>{{ user.email }}</td>
+        <td>{{ user.emailAdress }}</td>
         <td>
           <button
             type="button"
