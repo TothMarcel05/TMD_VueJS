@@ -1,22 +1,25 @@
 <script setup>
-import { useUserStore } from './store/user'
-import UsersTable from './components/UsersTable.vue'
+import { useUserStore } from '../store/user.js';
+import UsersTable from './components/UsersTable.vue';
 
-const {  fetchUsers } = useUserStore()
+const { fetchUsers } = useUserStore();
 
 try {
-  fetchUsers()
+  fetchUsers();
 } catch (error) {
-  console.error('Error fetching users:', error)
+  console.error('Error fetching users:', error);
 }
+
 
 </script>
 
 <template>
-<div class="container">
-  <UsersTable/>
-</div>
-    
+  <div class="container">
+    <UsersTable/>
+  </div>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
