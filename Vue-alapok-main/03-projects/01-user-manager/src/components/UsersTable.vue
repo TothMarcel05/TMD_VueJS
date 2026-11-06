@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useUserStore } from '../../store/user.js'
 import EditUserModal from './EditUserModal.vue'
+import CreateUserForm from './CreateUserForm.vue'
 
 const { users, removeUser } = useUserStore()
 const selectedUser = ref(null)
@@ -20,6 +21,7 @@ async function handleDeleteClick(userId) {
 </script>
 
 <template>
+  <CreateUserForm/>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -50,6 +52,7 @@ async function handleDeleteClick(userId) {
     </tbody>
   </table>
 
+ 
   <EditUserModal v-if="selectedUser" :user="selectedUser"/>
 </template>
 
