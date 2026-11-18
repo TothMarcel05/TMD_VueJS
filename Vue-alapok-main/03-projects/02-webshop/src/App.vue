@@ -1,5 +1,6 @@
 <script setup>
 import { useGuitarStore} from './store/guitars.js'
+import MainNavigation from './components/MainNavigation.vue';
 import { onMounted } from 'vue';
 
 
@@ -12,7 +13,12 @@ onMounted(async() => {
 </script>
 
 <template>
-<div></div>
+<div>
+  <MainNavigation/>
+  <main>
+    
+  </main>
+</div>
 </template>
 
 <style scoped>
